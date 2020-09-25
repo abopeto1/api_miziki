@@ -5,3 +5,7 @@ api_platform:
         json: ['application/merge-patch+json']
     swagger:
         versions: [3]
+    title: "LEV Agency Miziki"
+    description: "This is the REST Api for the Miziki Application"
+    version: 0.0.1
+
