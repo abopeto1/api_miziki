@@ -4,12 +4,17 @@ namespace App\Entity;
 
 use App\Repository\PersonRepository;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
+ * @ApiResource()
  * @ORM\Entity(repositoryClass=PersonRepository::class)
  */
 class Person
 {
+    const GENDER_MALE = "Male";
+    const GENDER_FEMALE = "Female";
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
