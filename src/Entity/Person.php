@@ -42,6 +42,11 @@ class Person
      */
     private $gender;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $dateCreated;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -91,6 +96,18 @@ class Person
     public function setGender(string $gender): self
     {
         $this->gender = $gender;
+
+        return $this;
+    }
+
+    public function getDateCreated(): ?\DateTimeInterface
+    {
+        return $this->dateCreated;
+    }
+
+    public function setDateCreated(\DateTimeInterface $dateCreated): self
+    {
+        $this->dateCreated = $dateCreated;
 
         return $this;
     }

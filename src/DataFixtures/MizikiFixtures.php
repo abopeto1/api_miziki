@@ -2,7 +2,9 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Artist;
 use App\Entity\Person;
+use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -19,8 +21,16 @@ class MizikiFixtures extends Fixture
             $newPerson = new Person();
             $newPerson
                 ->setName($person["name"])
-                ->setGender($person["gender"]);
+                ->setGender($person["gender"])
+                ->setDateCreated(new DateTime())
+            ;
+
+            $artist = new Artist();
+            $artist
+                ->setDateCreated(new DateTime())
+                ->setPerson($newPerson);
             $manager->persist($newPerson);
+            $manager->persist($artist);
         }
 
         $manager->flush();

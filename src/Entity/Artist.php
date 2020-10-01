@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\ArtistRepository;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -24,7 +25,7 @@ class Artist
     /**
      * @ORM\Column(type="datetime")
      */
-    private $created;
+    private $dateCreated;
 
     /**
      * @ORM\OneToOne(targetEntity=Person::class, cascade={"persist", "remove"})
@@ -46,14 +47,14 @@ class Artist
         return $this->id;
     }
 
-    public function getCreated(): ?\DateTimeInterface
+    public function getDateCreated(): ?DateTimeInterface
     {
-        return $this->created;
+        return $this->dateCreated;
     }
 
-    public function setCreated(\DateTimeInterface $created): self
+    public function setDateCreated(DateTimeInterface $dateCreated): self
     {
-        $this->created = $created;
+        $this->dateCreated = $dateCreated;
 
         return $this;
     }
